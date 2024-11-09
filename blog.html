@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Go2Doc Health and Wellness Blog - Tips, advice, and news on staying healthy.">
+    <title>Go2Doc Health & Wellness Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background-color: #007b5e;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 2em;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+}
+
+header .search input {
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+}
+
+header .search button {
+    padding: 10px;
+    background-color: #005b43;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hero section styles */
+.hero {
+    background: #005b43;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+}
+
+/* Main blog section styles */
+.blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.blog-post {
+    background-color: white;
+    width: 45%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.blog-post h2 a {
+    text-decoration: none;
+    color: #007b5e;
+    font-size: 1.5em;
+}
+
+.blog-post .meta {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.blog-post .excerpt {
+    font-size: 1em;
+}
+
+.blog-post .categories {
+    margin-top: 10px;
+    color: #007b5e;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    background-color: #007b5e;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #005b43;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: white;
+    width: 25%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007b5e;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sidebar form {
+    display: flex;
+    gap: 10px;
+}
+
+.sidebar form input {
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.sidebar form button {
+    padding: 10px;
+    background-color: #007b5e;
+    color: white;
+    border: none;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Go2Doc</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="health.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="program.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search Health Topics...">
+            <button onclick="searchBlog()">Search</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Explore the Latest Health Tips</h2>
+        <p>Your wellness journey starts here. Stay informed with expert advice!</p>
+    </section>
+
+    <section class="blog-list" id="blogList">
+        <article class="blog-post">
+            <img src="https://vims.ac.in/vims-hospital/wp-content/uploads/2023/01/Immune-System.jpg" alt="Healthy eating">
+            <h2><a href="#">How to Boost Immunity Naturally</a></h2>
+            <p class="meta">Published on Oct 20, 2024 by Dr. John Doe</p>
+            <p class="excerpt">Boosting your immunity is essential for maintaining overall health... <a href="#">Read More</a></p>
+            <p class="categories">Categories: Nutrition, Wellness</p>
+        </article>
+
+        <article class="blog-post">
+            <img src="https://www.essendonphysiogroup.com.au/static/uploads/images/exercise-in-the-cold-wfmrapslclzg.jpeg?autorotate=true&mode=max&upscale=true&width=533" alt="Exercise">
+            <h2><a href="#">5 Ways to Stay Active This Winter</a></h2>
+            <p class="meta">Published on Oct 15, 2024 by Dr. Jane Smith</p>
+            <p class="excerpt">Winter can be tough on your fitness routine, but here are 5 easy exercises you can do at home... <a href="#">Read More</a></p>
+            <p class="categories">Categories: Fitness, Tips</p>
+        </article>
+
+        <div class="pagination">
+            <button onclick="previousPage()">Previous</button>
+            <button onclick="nextPage()">Next</button>
+        </div>
+    </section>
+
+    <aside class="sidebar">
+        <h3>Popular Posts</h3>
+        <ul>
+            <li><a href="#">Top 10 Healthy Recipes</a></li>
+            <li><a href="#">How to Reduce Stress Effectively</a></li>
+            <li><a href="#">Benefits of Yoga</a></li>
+        </ul>
+
+        <h3>Newsletter</h3>
+        <form onsubmit="subscribeNewsletter(event)">
+            <input type="email" id="emailInput" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </aside>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">About Us</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </div>
+        <p>&copy; 2024 Go2Doc. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Blog search function
+        function searchBlog() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const blogPosts = document.querySelectorAll('.blog-post');
+
+            blogPosts.forEach(post => {
+                const title = post.querySelector('h2').innerText.toLowerCase();
+                const excerpt = post.querySelector('.excerpt').innerText.toLowerCase();
+
+                if (title.includes(searchQuery) || excerpt.includes(searchQuery)) {
+                    post.style.display = '';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        // Pagination logic (placeholder functions)
+        function previousPage() {
+            alert("Loading previous page of blog posts...");
+            // Add logic here for loading previous page
+        }
+
+        function nextPage() {
+            alert("Loading next page of blog posts...");
+            // Add logic here for loading next page
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            if (email) {
+                alert("Thank you for subscribing to our newsletter!");
+                document.getElementById('emailInput').value = '';
+            } else {
+                alert("Please enter a valid email address.");
+            }
+        }
+    </script>
+</body>
+</html>

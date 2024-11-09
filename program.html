@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs - Go2Doc</title>
+  <style>
+    /* Basic CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* General Styles */
+    body {
+      background-color: #f2f7f1;
+      color: #333;
+    }
+
+    /* Header and Navigation */
+    header {
+      background-color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo {
+      font-size: 2em;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #4CAF50;
+    }
+
+    /* Programs Section */
+    .programs-section {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .programs-section h1 {
+      font-size: 2.5em;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    .programs-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .program-card {
+      background-color: #fff;
+      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .program-card img {
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .program-card h3 {
+      font-size: 1.5em;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .program-card p {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .learn-more-btn {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .learn-more-btn:hover {
+      background-color: #388E3C;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header and Navigation -->
+  <header>
+    <div class="logo">Go2Doc</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Programs Section -->
+  <section class="programs-section">
+    <h1>Our Programs</h1>
+    <div class="programs-container">
+      <!-- Program Card 1 -->
+      <div class="program-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBekKYM4Uka1LEQEKJn8mOrFyOtBak23Ibxw&s" alt="Fitness & Nutrition">
+        <h3>Fitness & Nutrition</h3>
+        <p>Personalized workout and diet plans to help you achieve your fitness goals.</p>
+        <a href="https://www.healthline.com/nutrition" class="learn-more-btn" target="_blank" onclick="confirmNavigation(event)">Learn More</a>
+      </div>
+
+      <!-- Program Card 2 -->
+      <div class="program-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDCjOpLlysiWiVb-0-N12WbKdy2fkVFDSVuA&s" alt="Mindfulness & Meditation">
+        <h3>Mindfulness & Meditation</h3>
+        <p>Guided sessions to cultivate mindfulness and reduce stress.</p>
+        <a href="https://www.headspace.com/" class="learn-more-btn" target="_blank" onclick="confirmNavigation(event)">Learn More</a>
+      </div>
+
+      <!-- Program Card 3 -->
+      <div class="program-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9KbQiElYSIwynjh26Ygggu95wJNqCHtfcgQ&s" alt="Holistic Healing">
+        <h3>Holistic Healing</h3>
+        <p>Natural therapies and practices for balanced health and wellness.</p>
+        <a href="https://www.mindbodygreen.com/" class="learn-more-btn" target="_blank" onclick="confirmNavigation(event)">Learn More</a>
+      </div>
+
+      <!-- Program Card 4 -->
+      <div class="program-card">
+        <img src="https://images.everydayhealth.com/images/emotional-health/group-therapy-overview-guide-1440x810.jpg" alt="Mental Health Support">
+        <h3>Mental Health Support</h3>
+        <p>Confidential counseling and resources for mental well-being.</p>
+        <a href="https://www.mentalhealth.gov/" class="learn-more-btn" target="_blank" onclick="confirmNavigation(event)">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Go2Doc. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function confirmNavigation(event) {
+      if (!confirm("You are about to leave the page. Do you want to continue?")) {
+        event.preventDefault();
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go2Doc - Health & Wellness Tracker</title>
+  <style>
+    /* Basic Reset and Font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #e3f2fd;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Header Styling */
+    .header {
+      width: 100%;
+      background-color: #1565c0;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    /* Dashboard Container */
+    .dashboard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+      width: 90%;
+      max-width: 400px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .dashboard:hover {
+      transform: scale(1.02);
+    }
+
+    /* Circle for Steps */
+    .step-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: conic-gradient(#1565c0 calc(var(--percentage) * 1%), #e0e0e0 0);
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      margin: 20px;
+      position: relative;
+      animation: spin 2s ease-in-out infinite;
+    }
+
+    .step-circle::after {
+      content: attr(data-steps);
+      font-size: 2.4em;
+      font-weight: bold;
+      color: #1565c0;
+      position: absolute;
+      text-align: center;
+    }
+
+    @keyframes spin {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .step-label {
+      font-size: 1.2em;
+      color: #666;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Button Style */
+    .reset-button {
+      background-color: #1565c0;
+      color: white;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      margin-top: 20px;
+    }
+
+    .reset-button:hover {
+      background-color: #0d47a1;
+      transform: scale(1.05);
+    }
+
+    .reset-button:active {
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">Go2Doc Wellness Tracker</div>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard">
+    <div class="step-label">Total Steps</div>
+    <!-- Step Circle Progress -->
+    <div id="stepCircle" class="step-circle" data-steps="0" style="--percentage: 0"></div>
+    <button class="reset-button" onclick="resetCounter()">Reset Steps</button>
+  </div>
+
+  <!-- JavaScript for Step Counter -->
+  <script>
+    let stepCount = 0;
+    const stepGoal = 10000; // Set a goal for steps (can be modified)
+    const stepCircle = document.getElementById('stepCircle');
+
+    // Update step circle
+    function updateStepCircle() {
+      let percentage = Math.min(stepCount / stepGoal * 100, 100);
+      stepCircle.style.setProperty('--percentage', percentage);
+      stepCircle.setAttribute('data-steps', stepCount);
+    }
+
+    // Detect device motion for step count
+    let lastX = 0, lastY = 0, lastZ = 0;
+    const threshold = 10; // Adjust based on testing for step detection sensitivity
+
+    if (window.DeviceMotionEvent) {
+      window.addEventListener('devicemotion', function(event) {
+        let acc = event.accelerationIncludingGravity;
+        if (!acc) return;
+
+        let deltaX = Math.abs(acc.x - lastX);
+        let deltaY = Math.abs(acc.y - lastY);
+        let deltaZ = Math.abs(acc.z - lastZ);
+
+        if ((deltaX > threshold && deltaY > threshold) || deltaZ > threshold) {
+          stepCount++;
+          updateStepCircle();
+        }
+
+        lastX = acc.x;
+        lastY = acc.y;
+        lastZ = acc.z;
+      });
+    } else {
+      alert("Your device does not support step tracking.");
+    }
+
+    // Reset counter function
+    function resetCounter() {
+      stepCount = 0;
+      updateStepCircle();
+    }
+  </script>
+
+</body>
+</html>

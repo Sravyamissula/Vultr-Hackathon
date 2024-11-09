@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go2Doc - Health and Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* General Styles */
+        body {
+            background-color: #f2f7f1;
+            color: #333;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #4CAF50;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2.5em;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f2f7f1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://img.freepik.com/premium-photo/serene-yoga-class-sunrise-participants-tranquil-outdoor-resplendent_31965-303508.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+        }
+
+        /* Programs Section */
+        /* Programs Section */
+    .programs {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start; /* Align items to the top */
+        padding: 50px 20px;
+    }
+
+    .program {
+        background-color: #fff;
+        width: 30%;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+        display: flex;
+            flex-direction: column;
+        align-items: center; /* Center align items */
+    }
+
+    .program img {
+        width: 100%; /* Ensure images are the same width */
+        max-width: 280px; /* Limit the width to a max */
+        height: 300px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+
+
+        .program:hover {
+            transform: translateY(-8px);
+        }
+
+       
+
+        .program h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        /* Login Button */
+        .login-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #fff;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+}
+
+        /* Modal Overlay (initially hidden) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Modal Container */
+        .modal {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5em;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .modal h3 {
+            margin-top: 0;
+        }
+
+        .modal select, .modal button {
+            width: 100%;
+            padding: 0.8em;
+            margin: 0.5em 0;
+            font-size: 1em;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .modal button {
+            background: #4a4e69;
+            color: white;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background: #22223b;
+        }
+
+        /* Chatbot Styles */
+        .chatbot-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            border: none;
+            font-size: 1.8em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-btn:hover {
+            background-color: #45a049;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 70px;
+            background-color: #fff;
+            width: 350px;
+            max-height: 500px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            background-color: #4CAF50;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            font-size: 1.2em;
+        }
+
+        .chatbot-header button {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: white;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            padding: 15px;
+            flex-grow: 1;
+            overflow-y: auto;
+            max-height: 380px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chatbot-message {
+            display: flex;
+            align-items: center;
+            max-width: 80%;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 1em;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .chatbot-message.bot {
+            background-color: #e1e1e1;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        .chatbot-message.user {
+            background-color: #4CAF50;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .chatbot-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .chatbot-option-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-option-btn:hover {
+            background-color: #45a049;
+        }
+        /* Style for Submit Button */
+.submit-btn {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #66BB6A, #A5D6A7);
+}
+
+/* Divider Style */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    color: #777;
+}
+
+.divider span {
+    margin: 0 10px;
+    font-size: 0.9em;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+/* Social Login Buttons */
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.social-btn.google {
+    background-color: #db4437;
+    color: #fff;
+}
+
+.social-btn.google:hover {
+    background-color: #c43b31;
+}
+
+.social-btn.facebook {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.social-btn.facebook:hover {
+    background-color: #344e86;
+}
+
+/* Register Option */
+.register-option {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.register-option a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-option a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+
+<!-- Header and Navigation -->
+<header>
+    <div class="logo">Go2Doc</div>
+    <nav>
+        <ul>
+            <li><a href="health.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="step.html">Step Counter</a></li>
+            <li><a href="program.html">Programs</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button class="login-btn" onclick="openModal()">Login / Register</button></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div>
+        <h1>Welcome to Go2Doc</h1>
+        <p>Your health and wellness journey starts here!</p>
+    </div>
+</section>
+
+<!-- Programs>
+ <!--Programs Section -->
+<section class="programs">
+    <div class="program">
+        <img src="https://img.freepik.com/free-photo/calm-meditation-young-woman-wellness-spa-meditating-indoor-studio_255667-76224.jpg" alt="Yoga">
+        <h3>Yoga</h3>
+        <p>Experience mindfulness and physical well-being through our curated yoga sessions.</p>
+    </div>
+    <div class="program">
+        <img src="https://www.lifepointhospital.in/wp-content/uploads/2023/08/diet-plans-1.jpg" alt="Diet Plans">
+        <h3>Diet Plans</h3>
+        <p>Personalized diet plans to help you meet your health and wellness goals.</p>
+    </div>
+    <div class="program">
+        <img src="https://img.freepik.com/free-photo/doctor-talking-with-patient-hospital-office_23-2148829300.jpg" alt="Consultation">
+        <h3>Consultation</h3>
+        <p>Speak with our health experts to receive personalized advice.</p>
+    </div>
+</section>
+
+<!-- Chatbot Button and Container -->
+<button class="chatbot-btn" onclick="toggleChatbot()">💬</button>
+
+<div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-header">
+        <h3>Go2Doc Assistant</h3>
+        <button onclick="toggleChatbot()">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+        <div class="chatbot-message bot">Hello! How can I help you today?</div>
+    </div>
+    <div class="chatbot-options">
+        <button class="chatbot-option-btn" onclick="sendMessage('Tell me about Yoga')">Tell me about Yoga</button>
+        <button class="chatbot-option-btn" onclick="sendMessage('I need a diet plan')">I need a diet plan</button>
+        <button class="chatbot-option-btn" onclick="sendMessage('I want to consult a doctor')">I want to consult a doctor</button>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <span class="close-modal" onclick="closeModal()">×</span>
+        <h3>Welcome Back!</h3>
+        <p>Log in to access your personalized health and wellness journey.</p>
+
+        <!-- Email and Password Fields -->
+        <input type="email" placeholder="Email Address" required style="margin-bottom: 10px;">
+        <input type="password" placeholder="Password" required>
+
+        <!-- Login Button -->
+        <button class="submit-btn">Log In</button>
+
+        <!-- Divider for Social Login Options -->
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <!-- Social Login Options -->
+        <div class="social-login">
+            <button class="social-btn google">
+                <i class="fab fa-google"></i> Continue with Google
+            </button>
+            <button class="social-btn facebook">
+                <i class="fab fa-facebook"></i> Continue with Facebook
+            </button>
+        </div>
+
+        <!-- Register Option -->
+        <p class="register-option">New to Go2Doc? <a href="#">Create an account</a></p>
+    </div>
+</div>
+
+
+<script>
+    // Chatbot functionality
+    function toggleChatbot() {
+        const chatbotContainer = document.getElementById("chatbotContainer");
+        chatbotContainer.style.display = chatbotContainer.style.display === "none" || chatbotContainer.style.display === "" ? "flex" : "none";
+    }
+
+    function sendMessage(message) {
+        const chatbotMessages = document.getElementById("chatbotMessages");
+
+        // Add user message
+        const userMessage = document.createElement("div");
+        userMessage.classList.add("chatbot-message", "user");
+        userMessage.textContent = message;
+        chatbotMessages.appendChild(userMessage);
+
+        // Scroll to the bottom
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+        // Simulate bot response
+        setTimeout(() => {
+            const botMessage = document.createElement("div");
+            botMessage.classList.add("chatbot-message", "bot");
+
+            // Custom responses
+            if (message === "Tell me about Yoga") {
+                botMessage.textContent = "Yoga helps improve flexibility, balance, and mental clarity. We offer beginner to advanced classes!";
+            } else if (message === "I need a diet plan") {
+                botMessage.textContent = "Our diet plans are personalized based on your goals. Visit our Diet Plans section for more info!";
+            } else if (message === "I want to consult a doctor") {
+                botMessage.textContent = "You can schedule a consultation with our experts through the Consultation section.";
+            } else {
+                botMessage.textContent = "I'm here to assist you! Please choose an option or ask a question.";
+            }
+
+            chatbotMessages.appendChild(botMessage);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }, 1000);
+    }
+
+    // Modal functionality
+    function openModal() {
+    const modalOverlay = document.getElementById("modalOverlay");
+    modalOverlay.style.display = "flex";
+    modalOverlay.style.opacity = "0";
+    setTimeout(() => {
+        modalOverlay.style.opacity = "1";
+        modalOverlay.style.transition = "opacity 0.3s ease";
+    }, 10);
+}
+
+function closeModal() {
+    const modalOverlay = document.getElementById("modalOverlay");
+    modalOverlay.style.opacity = "0";
+    modalOverlay.style.transition = "opacity 0.3s ease";
+    setTimeout(() => {
+        modalOverlay.style.display = "none";
+    }, 300);
+}
+
+</script>
+</body>
+</html>
